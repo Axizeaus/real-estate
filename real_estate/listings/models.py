@@ -1,3 +1,10 @@
 from django.db import models
 
-# Create your models here.
+class Listing(models.Model):
+    title = models.CharField(max_length=100)
+    price = models.IntegerField()
+    num_bedroom = models.IntegerField()
+    num_bathroom = models.IntegerField()
+    sqft = models.IntegerField()
+    address = models.CharField(max_length=100)
+    # image
