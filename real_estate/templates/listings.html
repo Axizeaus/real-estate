@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listings</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for listing in listings %}
+<a href="/listing/{{ listing.id }}" class='px-3 py-3 bg-gray-100 rounded-sm'>
+    {{ listing.title }}</a>
+{% endfor %}
+<div class='mt-4 bg-green-5'>
+    <a href="add_listing/">Create Listing</a>
+</div>
+{% endblock content %}
     
-    {% for listing in listings %}
-        <a href="/listing/{{ listing.id }}">{{ listing.title }}</a>
-    {% endfor %}
-</body>
-</html>

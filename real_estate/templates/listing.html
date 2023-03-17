@@ -1,18 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listing</title>
-</head>
-<body>
-    
-    {{ listing.title}}
-    {{ listing.price }}
-    {{ listing.num_bedroom}}
-    {{ listing.num_bathroom}}
-    {{ listing.sqft}}
-    {{ listing.address}}
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class='px-3 py-3 bg-gray-100 rounded-sm'>
+    <h3 class='text-3xl text-gray-900'>{{ listing.title }}</h3>
+    <p class='text-gray-900'>${{listing.price}}</p>
+    <p class='text-gray-600 text-sm'>{{ listing.address}}</p>
+    {% if request.user.is_stuff %}
+        <div class='py-5 border-t border-gray-200'>
+            <a href="/listing/{{ listing.id }}/edit/" class='text-blue-500'> edit
+            </a>
+            <a href="/listing/{{ listing.id }}/delete/" class='text-blue-500 ml-3'> delete
+            </a>
+        </div>
+    {% endif %}
+
+
+</div>
+
+{{ listing.num_bedroom}}
+{{ listing.num_bathroom}}
+{{ listing.sqft}}
+
+{% endblock content %}
