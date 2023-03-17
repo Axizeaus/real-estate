@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from listings.views import listing_list, listing_retrieve, listing_create
+from listings.views import listing_list, listing_retrieve, listing_create, listing_update
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', listing_list),
     path('listing/<pk>/', listing_retrieve ),
-    path('add_listing/', listing_create)
+    path('add_listing/', listing_create),
+    path('listing/<pk>/edit/', listing_update ),
+
 ]
